@@ -1,6 +1,5 @@
 apiVersion: v2
-name: mon-app-kube
-description: Un chart Helm pour déployer frontend, backend et PostgreSQL
-type: application
+name: mon-app
+description: A Helm chart for Kubernetes
 version: 0.1.0
 appVersion: "1.0"
