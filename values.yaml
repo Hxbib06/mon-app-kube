@@ -1,12 +1,22 @@
-frontend:
-  image: mon-frontend:v1
-  nodePort: 30080
-
 backend:
-  image: mon-backend:v1
+  image:
+    repository: ealen/echo-server
+    tag: latest
+  service:
+    port: 80
+
+frontend:
+  image:
+    repository: nginx
+    tag: latest
+  service:
+    port: 80
 
 postgres:
-  image: postgres:15
-  db: mydb
-  user: user
-  password: password
+  image:
+    repository: bitnami/postgresql
+    tag: "17.5.0"
+  auth:
+    username: user
+    password: pass
+    database: ma_base

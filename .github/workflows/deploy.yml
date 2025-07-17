@@ -1,0 +1,29 @@
+name: Deploy to ArgoCD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Helm
+      uses: azure/setup-helm@v3
+
+    - name: Package Helm Chart
+      run: helm lint . && helm template . > output.yaml
+
+    - name: Commit rendered manifest (optional)
+      run: |
+        mkdir -p output
+        helm template . > output/rendered.yaml
+        git config --global user.email "ci@github.com"
+        git config --global user.name "github-actions"
+        git add output/rendered.yaml
+        git commit -m "Update rendered manifest" || echo "No changes"
+        git push || echo "Nothing to push"

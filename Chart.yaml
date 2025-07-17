@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mon-app
+name: mon-app-kube
 description: Un chart Helm pour déployer frontend, backend et PostgreSQL
 type: application
 version: 0.1.0
