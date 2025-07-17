@@ -16,14 +16,13 @@ spec:
       containers:
         - name: postgres
           image: "{{ .Values.postgres.image.repository }}:{{ .Values.postgres.image.tag }}"
-
           env:
             - name: POSTGRES_DB
-              value: {{ .Values.postgres.db }}
+              value: "{{ .Values.postgres.auth.database }}"
             - name: POSTGRES_USER
-              value: {{ .Values.postgres.user }}
+              value: "{{ .Values.postgres.auth.username }}"
             - name: POSTGRES_PASSWORD
-              value: {{ .Values.postgres.password }}
+              value: "{{ .Values.postgres.auth.password }}"
           ports:
             - containerPort: 5432
 ---
