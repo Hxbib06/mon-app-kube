@@ -1,0 +1,12 @@
+frontend:
+  image: mon-frontend:v1
+  nodePort: 30080
+
+backend:
+  image: mon-backend:v1
+
+postgres:
+  image: postgres:15
+  db: mydb
+  user: user
+  password: password
