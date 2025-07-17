@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: {{ .Values.postgres.image }}
+          image: "{{ .Values.postgres.image.repository }}:{{ .Values.postgres.image.tag }}"
+
           env:
             - name: POSTGRES_DB
               value: {{ .Values.postgres.db }}
