@@ -19,4 +19,4 @@ postgres:
   auth:
     username: user
     password: pass
-    database: ma_base
+    database: base
